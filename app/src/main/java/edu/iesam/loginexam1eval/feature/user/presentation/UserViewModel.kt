@@ -32,6 +32,19 @@ class UserViewModel(
         }
     }
 
+    fun loginUser(id:String,password:String){
+        val userData= getUserUserCase.invoke(id)
+        if (userData != null){
+            if (userData.pasword==password){
+                _uiState.postValue(UiState(user = userData))
+            }else{
+                _uiState.postValue(UiState(message = "Contraseña no valida"))
+            }
+        }else{
+            _uiState.postValue(UiState(message = "Usuario no encontrado"))
+        }
+    }
+
     data class UiState(
         val user: User? = null,
         val message: String? = null

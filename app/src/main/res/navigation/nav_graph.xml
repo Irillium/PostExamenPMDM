@@ -7,17 +7,20 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="edu.iesam.loginexam1eval.feature.user.presentation.home.HomeFragment"
+        android:name="edu.iesam.loginexam1eval.feature.user.presentation.fragments.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
 
         <action
             android:id="@+id/action_homeFragment_to_logInFragment"
             app:destination="@+id/logInFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_singInFragment"
+            app:destination="@id/singInFragment" />
     </fragment>
     <fragment
         android:id="@+id/logInFragment"
-        android:name="edu.iesam.loginexam1eval.feature.user.presentation.logIn.LogInFragment"
+        android:name="edu.iesam.loginexam1eval.feature.user.presentation.fragments.LogInFragment"
         android:label="fragment_log_in"
         tools:layout="@layout/fragment_log_in" >
         <action
@@ -26,11 +29,20 @@
     </fragment>
     <fragment
         android:id="@+id/welcomeFragment"
-        android:name="edu.iesam.loginexam1eval.feature.user.presentation.welcome.WelcomeFragment"
+        android:name="edu.iesam.loginexam1eval.feature.user.presentation.fragments.WelcomeFragment"
         android:label="fragment_welcome"
         tools:layout="@layout/fragment_welcome" >
         <action
             android:id="@+id/action_welcomeFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/singInFragment"
+        android:name="edu.iesam.loginexam1eval.feature.user.presentation.fragments.SingInFragment"
+        android:label="fragment_sing_in"
+        tools:layout="@layout/fragment_sing_in" >
+        <action
+            android:id="@+id/action_singInFragment_to_welcomeFragment"
+            app:destination="@id/welcomeFragment" />
     </fragment>
 </navigation>
