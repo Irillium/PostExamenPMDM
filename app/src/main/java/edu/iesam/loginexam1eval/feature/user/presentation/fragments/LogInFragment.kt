@@ -55,7 +55,7 @@ class LogInFragment : Fragment() {
                 if(name=="" || password==""){
                     Toast.makeText(requireContext(), "Debes completar los campos", Toast.LENGTH_SHORT).show()
                 }else{
-                    viewModel.addUser(User(name, password))
+                    viewModel.addUser(User(name, password,false))
                 }
 
             }

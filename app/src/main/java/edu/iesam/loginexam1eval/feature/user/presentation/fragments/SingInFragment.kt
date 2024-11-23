@@ -10,6 +10,7 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import edu.iesam.loginexam1eval.R
 import edu.iesam.loginexam1eval.databinding.FragmentSingInBinding
+import edu.iesam.loginexam1eval.feature.user.domain.User
 import edu.iesam.loginexam1eval.feature.user.presentation.UserViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -30,23 +31,37 @@ class SingInFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setubObserver()
-        setubView()
+        viewModel.loadUserRemind()
     }
 
     fun setubObserver() {
         val observer = Observer<UserViewModel.UiState> { uiState ->
-            uiState.message?.let { message ->
-                Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
+            uiState.apply {
+               message?.let { message ->
+                    Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
+                }
+               user?.let {
+                    findNavController().navigate(SingInFragmentDirections.actionSingInFragmentToWelcomeFragment())
+                }
+                userRemind?.let {
+                    setubView(true,it)
+                }?: run{
+                    setubView(false,null)
+                }
             }
-            uiState.user?.let {
-                findNavController().navigate(SingInFragmentDirections.actionSingInFragmentToWelcomeFragment())
-            }
+
+
         }
         viewModel.uiState.observe(viewLifecycleOwner, observer)
     }
 
-    fun setubView() {
+    fun setubView(remind:Boolean,user:User?) {
         binding.apply {
+            reminder.isChecked=remind
+            if(remind && user!=null){
+                username.setText(user.id)
+                password.setText(user.pasword)
+            }
             action.setOnClickListener{
                 val name= username.text.toString()
                 val password= password.text.toString()
@@ -56,7 +71,6 @@ class SingInFragment : Fragment() {
                     viewModel.loginUser(name,password, reminder.isChecked)
                 }
             }
-
         }
     }
 }
