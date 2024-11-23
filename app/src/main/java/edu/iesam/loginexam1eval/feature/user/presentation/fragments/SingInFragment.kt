@@ -53,9 +53,10 @@ class SingInFragment : Fragment() {
                 if (name==""||password==""){
                     Toast.makeText(requireContext(), "Complete los campos", Toast.LENGTH_SHORT).show()
                 }else{
-                    viewModel.loginUser(name,password)
+                    viewModel.loginUser(name,password, reminder.isChecked)
                 }
             }
+
         }
     }
 }
