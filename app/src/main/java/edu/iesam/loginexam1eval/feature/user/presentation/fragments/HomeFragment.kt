@@ -34,6 +34,9 @@ class HomeFragment : Fragment() {
             singInButtom.setOnClickListener{
                 findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToSingInFragment())
             }
+            unsubcribeButtom.setOnClickListener{
+                findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToUnsubscribeFragment())
+            }
 
         }
     }

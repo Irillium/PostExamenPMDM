@@ -28,4 +28,9 @@ class UserDataRepository(private val local: LoginXmlLocalDataSource) : UserRepos
         local.save(user)
     }
 
+    override fun deleteById(id: String) {
+        local.deleteById(id)
+    }
+
+
 }

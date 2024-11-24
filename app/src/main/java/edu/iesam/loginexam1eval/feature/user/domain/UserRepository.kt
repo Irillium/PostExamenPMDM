@@ -5,4 +5,5 @@ interface UserRepository {
     fun findById(id:String):User?
     fun findUserRemind():User?
     fun modify(user:User)
+    fun deleteById(id:String)
 }

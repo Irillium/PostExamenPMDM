@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import edu.iesam.loginexam1eval.feature.user.domain.CreateUserUseCase
+import edu.iesam.loginexam1eval.feature.user.domain.DeleteUserUseCase
 import edu.iesam.loginexam1eval.feature.user.domain.GetUserRemindUseCase
 import edu.iesam.loginexam1eval.feature.user.domain.GetUserUserCase
 import edu.iesam.loginexam1eval.feature.user.domain.ModifyUserUseCase
@@ -15,7 +16,8 @@ class UserViewModel(
     private val getUserUserCase: GetUserUserCase,
     private val createUserUseCase: CreateUserUseCase,
     private val getUserRemindUseCase: GetUserRemindUseCase,
-    private val modifyUserUseCase: ModifyUserUseCase
+    private val modifyUserUseCase: ModifyUserUseCase,
+    private val deleteUserUseCase: DeleteUserUseCase
 ) : ViewModel() {
 
     private val _uiState = MutableLiveData<UiState>()
@@ -51,6 +53,20 @@ class UserViewModel(
     fun loadUserRemind(){
         val userRemind=getUserRemindUseCase.invoke()
         _uiState.postValue(UiState(userRemind=userRemind))
+    }
+
+    fun deleteUser(id:String,password: String){
+        val userData= getUserUserCase.invoke(id)
+        if(userData!=null){
+            if(userData.pasword==password){
+                deleteUserUseCase.invoke(id)
+                _uiState.postValue(UiState(message = "Usuario eliminado correctamente"))
+            }else{
+                _uiState.postValue(UiState(message = "Contraseña no valida"))
+            }
+        }else{
+            _uiState.postValue(UiState(message = "El usuario no existe"))
+        }
     }
 
     data class UiState(

@@ -17,6 +17,9 @@
         <action
             android:id="@+id/action_homeFragment_to_singInFragment"
             app:destination="@id/singInFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_unsubscribeFragment"
+            app:destination="@id/unsubscribeFragment" />
     </fragment>
     <fragment
         android:id="@+id/logInFragment"
@@ -45,4 +48,9 @@
             android:id="@+id/action_singInFragment_to_welcomeFragment"
             app:destination="@id/welcomeFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/unsubscribeFragment"
+        android:name="edu.iesam.loginexam1eval.feature.user.presentation.fragments.UnsubscribeFragment"
+        android:label="fragment_unsubscribe"
+        tools:layout="@layout/fragment_unsubscribe" />
 </navigation>
