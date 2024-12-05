@@ -1,8 +1,11 @@
-package edu.iesam.loginexam1eval
+package edu.iesam.loginexam1eval.feature.user.data.local
 
 import android.content.Context
 import com.google.gson.Gson
+import edu.iesam.loginexam1eval.feature.user.domain.User
+import org.koin.core.annotation.Single
 
+@Single
 class LoginXmlLocalDataSource (private val context: Context) {
 
     private val sharedPref = context.getSharedPreferences(

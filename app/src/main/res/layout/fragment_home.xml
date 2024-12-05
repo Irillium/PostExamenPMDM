@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#3f3d56"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".feature.user.presentation.fragments.HomeFragment">
+
+    <ImageView
+        android:id="@+id/imagenInicio"
+        android:layout_width="450dp"
+        android:layout_height="500dp"
+        android:src="@drawable/init"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
+    <Button
+        android:id="@+id/logInButtom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:text="Registrarse"
+        android:backgroundTint="#00992288"
+        app:layout_constraintTop_toTopOf="@+id/imagenInicio"
+        app:layout_constraintBottom_toBottomOf="@+id/imagenInicio"
+        app:layout_constraintVertical_bias="0.63"
+        app:layout_constraintLeft_toLeftOf="@+id/imagenInicio"
+        app:layout_constraintRight_toRightOf="@+id/imagenInicio"
+        app:layout_constraintHorizontal_bias="0.62"/>
+
+    <Button
+        android:id="@+id/singInButtom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:text="Iniciar sesión"
+        android:textSize="25dp"
+        android:backgroundTint="#00992288"
+        app:layout_constraintTop_toTopOf="@+id/imagenInicio"
+        app:layout_constraintBottom_toBottomOf="@+id/imagenInicio"
+        app:layout_constraintVertical_bias="0.426"
+        app:layout_constraintLeft_toLeftOf="@+id/imagenInicio"
+        app:layout_constraintRight_toRightOf="@+id/imagenInicio"
+        app:layout_constraintHorizontal_bias="0.66"
+        />
+    <com.google.android.material.divider.MaterialDivider
+        android:layout_width="200dp"
+        android:layout_height="5dp"
+        app:dividerColor="#A5A0A8"
+        app:layout_constraintTop_toTopOf="@+id/imagenInicio"
+        app:layout_constraintBottom_toBottomOf="@+id/imagenInicio"
+        app:layout_constraintVertical_bias="0.65"
+        app:layout_constraintLeft_toLeftOf="@+id/imagenInicio"
+        app:layout_constraintRight_toRightOf="@+id/imagenInicio"
+        app:layout_constraintHorizontal_bias="0.64"
+        />
+    <Button
+        android:id="@+id/unsubcribeButtom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:text="Desuscribirse"
+        android:backgroundTint="#00992288"
+        app:layout_constraintTop_toTopOf="@+id/imagenInicio"
+        app:layout_constraintBottom_toBottomOf="@+id/imagenInicio"
+        app:layout_constraintVertical_bias="0.73"
+        app:layout_constraintLeft_toLeftOf="@+id/imagenInicio"
+        app:layout_constraintRight_toRightOf="@+id/imagenInicio"
+        app:layout_constraintHorizontal_bias="0.63"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
